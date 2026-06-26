@@ -1,0 +1,20 @@
+C:\Users\htmc7\langchain-typescript-ai-app\src\index.ts
+import dotenv from "dotenv";
+dotenv.config();
+
+import { ChatGroq } from "@langchain/groq";
+
+async function main() {
+  const model = new ChatGroq({
+    apiKey: process.env.GROQ_API_KEY!,
+    model: "llama-3.3-70b-versatile",
+  });
+
+  const response = await model.invoke(
+    "You are a helpful support assistant. My internet is slow. What should I do?"
+  );
+
+  console.log(response.content);
+}
+
+main();
